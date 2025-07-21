@@ -1,3 +1,6 @@
+// To explicitly specify the Debug output format (trait) for
+// the struct with the outer attribute #[derive(Debug)]
+#[derive(Debug)]
 struct Rectangle {
     width: u32,
     height: u32,
@@ -22,4 +25,11 @@ fn main() {
         "The area of the rectangle is {} unit squared.",
         area(&rect)
     );
+
+    // Without specifying :? in the curly brackets, 
+    // the Display format will be used, which is not
+    // implemented by a struct. So :? is used to
+    // specify the use of Debug format. :#? can also
+    // be used so the struct fields are listed clearly.
+    println!("The rectangle is a struct: {rect:?}.");
 }
