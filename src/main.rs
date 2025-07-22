@@ -16,6 +16,7 @@ fn area(rectangle: &Rectangle) -> u32 {
 }
 
 impl Rectangle {
+    // The &self parameter is shorthand for self: &Self
     fn area(&self) -> u32 {
         self.width * self.height
     }
