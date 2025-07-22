@@ -20,22 +20,39 @@ impl Rectangle {
     fn area(&self) -> u32 {
         self.width * self.height
     }
+
+    fn can_hold(&self, rect: &Rectangle) -> bool {
+        self.width > rect.width && self.width > rect.height && self.height > rect.width && self.height > rect.height
+    }
 }
 
 fn main() {
-    let rect = Rectangle {
+    let rect1 = Rectangle {
         width: 70,
         height: 70,
     };
 
-    println!("The area of the rectangle is {} unit squared (function).", area(&rect));
-    println!("The area of the rectangle is {} unit squared (method).", rect.area());
+    println!("The area of the rect1 is {} unit squared (function).", area(&rect1));
+    println!("The area of the rect1 is {} unit squared (method).", rect1.area());
 
     // Without specifying :? or :#? in the curly brackets, 
     // the Display format will be used, which is not
     // implemented by a struct. So :? or :#? is used to
     // specify the use of Debug format. :#? can make the
     // expression of the struct prettier.
-    println!("The rectangle is a struct: {rect:?}.");
-    println!("The rectangle is a struct: {rect:#?}.");
+    println!("rect1 is a struct: {rect1:?}.");
+    println!("rect1 is a struct: {rect1:#?}.");
+
+    let rect2 = Rectangle {
+        width: 50,
+        height: 60,
+    };
+
+    let rect3 = Rectangle {
+        width: 100,
+        height: 70,
+    };
+
+    println!("Can rect1 hold rect2? {}", rect1.can_hold(&rect2));
+    println!("Can rect1 hold rect3? {}", rect1.can_hold(&rect3))
 }
