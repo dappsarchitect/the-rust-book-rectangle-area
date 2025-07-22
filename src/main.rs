@@ -15,16 +15,20 @@ fn area(rectangle: &Rectangle) -> u32 {
     rectangle.width * rectangle.height
 }
 
+impl Rectangle {
+    fn area(&self) -> u32 {
+        self.width * self.height
+    }
+}
+
 fn main() {
     let rect = Rectangle {
         width: 70,
         height: 70,
     };
 
-    println!(
-        "The area of the rectangle is {} unit squared.",
-        area(&rect)
-    );
+    println!("The area of the rectangle is {} unit squared (function).", area(&rect));
+    println!("The area of the rectangle is {} unit squared (method).", rect.area());
 
     // Without specifying :? in the curly brackets, 
     // the Display format will be used, which is not
