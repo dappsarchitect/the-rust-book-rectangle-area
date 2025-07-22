@@ -30,10 +30,11 @@ fn main() {
     println!("The area of the rectangle is {} unit squared (function).", area(&rect));
     println!("The area of the rectangle is {} unit squared (method).", rect.area());
 
-    // Without specifying :? in the curly brackets, 
+    // Without specifying :? or :#? in the curly brackets, 
     // the Display format will be used, which is not
-    // implemented by a struct. So :? is used to
-    // specify the use of Debug format. :#? can also
-    // be used so the struct fields are listed clearly.
+    // implemented by a struct. So :? or :#? is used to
+    // specify the use of Debug format. :#? can make the
+    // expression of the struct prettier.
     println!("The rectangle is a struct: {rect:?}.");
+    println!("The rectangle is a struct: {rect:#?}.");
 }
